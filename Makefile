@@ -4,17 +4,17 @@ INSTALL_FILE = install -p -o root -g admin -m 644
 INSTALL_DIR = install -o root -g admin -d
 LN = ln -s
 RM = rm -fv
-CFLAGS += -c -O2 -Wall
+CFLAGS += -c -O2 -Wall -Iinclude
 LDFLAGS += -framework OpenGL -framework CoreFoundation
 
-CFILES = image_DXT.c image_helper.c SOIL.c stb_image_aug.c
+CFILES = src/image_DXT.c src/image_helper.c src/SOIL.c src/stb_image_aug.c
 OFILES = $(CFILES:.c=.o)
 LIBNAME = libSOIL
 VERSION = 1.07-20071110
 MAJOR = 1
 
-HFILES = SOIL.h image_DXT.h image_helper.h \
-  stbi_DDS_aug.h stbi_DDS_aug_c.h stb_image_aug.h
+HFILES = include/SOIL.h include/image_DXT.h include/image_helper.h \
+  include/stbi_DDS_aug.h include/stbi_DDS_aug_c.h include/stb_image_aug.h
 AFILE = libSOIL.a
 DYLIBFILE = libSOIL.dylib
 INCLUDEDIR = opt/local/include/SOIL
